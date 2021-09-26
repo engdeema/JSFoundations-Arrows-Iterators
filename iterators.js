@@ -4,9 +4,12 @@
  * - Accepts an array
  * - Logs every element of the array
  ************************************/
-const logger = function (array) {
-
+const logger = function (array)
+{
+array.forEach((element) => {console.log(element)})
 };
+//logger (["Deema","Shaikha","Fatima"])
+ 
 
 /*************************************
  * toCelsius(temperatures)
@@ -19,9 +22,16 @@ const logger = function (array) {
  * The conversion is:
  *   C = (F - 32) * (5/9)
  ************************************/
-const toCelsius = function (temperatures) {
+const toCelsius = function (temperatures) 
+{
+const tempsTOc = temperatures.map((temp) =>  (temp - 32)* (5/9))
+
+return tempsTOc ;
+// or : return temperatures.map((temp) =>  (temp - 32)* (5/9))
 
 };
+
+//console.log(toCelsius([101.3,100,105]));
 
 /**************************************
  * hottestDays(temperatures, threshhold)
@@ -31,9 +41,14 @@ const toCelsius = function (temperatures) {
  * - Returns an array of temperatures
  *   that exceed the threshhold
  ***************************************/
-const hottestDays = function (temperatures, threshhold) {
+function hottestDays (temperatures, threshhold) 
+
+{
+    return temperatures.filter(temp=>temp>threshhold) 
 
 };
+// or i can remove the if statment and directly return (element > threshhold)
+
 
 /******************************************
  * logHottestDays(temperatures, threshhold)
@@ -50,6 +65,10 @@ const hottestDays = function (temperatures, threshhold) {
  *       all previous functions
  *******************************************/
 const logHottestDays = function (temperatures, threshhold) {
+    const newfun1 = hottestDays (temperatures, threshhold);
+const newfun2 = toCelsius (newfun1);
+logger (newfun2);
+
 
 };
 
